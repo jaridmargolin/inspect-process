@@ -1,0 +1,34 @@
+{
+  "name": "inspect-process",
+  "description": "Dead simple debugging for node.js using chrome-devtools.",
+  "author": "Jarid Margolin <jaridmargolin@gmail.com>",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jaridmargolin/inspect-process",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaridmargolin/inspect-process"
+  },
+  "bugs": {
+    "url": "https://github.com/jaridmargolin/inspect-process/issues"
+  },
+  "main": "lib/index.js",
+  "bin": {
+    "inspect": "bin/inspect.js"
+  },
+  "scripts": {
+    "test": "mocha --no-timeouts tests"
+  },
+  "dependencies": {
+    "chromedriver": "^2.24.1",
+    "exit-hook": "^1.1.1",
+    "lodash": "^4.16.4",
+    "selenium-webdriver": "^3.0.0-beta-3",
+    "which": "^1.2.11"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "test-console": "^1.0.0"
+  }
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+'use strict';
+
+/* -----------------------------------------------------------------------------
+ * success
+ * ---------------------------------------------------------------------------*/
+
+// dirty little hack to confirm additional args get passed through
+if (process.argv[2].startsWith('--')) {
+  process.stdout.write('success');  
+} else {
+  process.stdout.write(process.argv[2]);
+}
+
+process.exit(0);
