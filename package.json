@@ -23,6 +23,7 @@
     "chromedriver": "^2.24.1",
     "exit-hook": "^1.1.1",
     "lodash": "^4.16.4",
+    "portfinder": "^1.0.9",
     "selenium-webdriver": "^3.0.0-beta-3",
     "which": "^1.2.11"
   },

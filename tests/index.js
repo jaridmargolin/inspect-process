@@ -7,6 +7,7 @@
 // core
 const spawn = require('child_process').spawn;
 const path = require('path');
+const net = require('net');
 
 // 3rd party
 const _ = require('lodash');
@@ -84,6 +85,10 @@ describe('inspect', function () {
         .then(() => assert.equal(this.stdout.output.length, 1));
     });
 
+    it('Should find an open port.', function (done) {
+      const server = net.createServer();
+      server.listen(9229, () => inspect(successPath).then(done));
+    });
   });
 
   describe('executable', function () {
