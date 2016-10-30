@@ -17,7 +17,7 @@
     "inspect": "bin/inspect.js"
   },
   "scripts": {
-    "test": "mocha --no-timeouts tests"
+    "test": "mocha --no-timeouts"
   },
   "dependencies": {
     "chromedriver": "^2.24.1",
