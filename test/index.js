@@ -111,7 +111,7 @@ describe('inspect', function () {
       });
     });
 
-    it('Should forward args.', function (done) {
+    it('Should forward childArgs.', function (done) {
       const proc = spawn(executablePath, ['success', 'overwrite']);
       let output;
 
@@ -122,6 +122,16 @@ describe('inspect', function () {
       });
     });
 
+    it('Should forward nodeArgs', function (done) {
+      const proc = spawn(executablePath, ['--require', './test/fixtures/required', '--', 'success']);
+      let output = '';
+
+      proc.stdout.on('data', (data) => output = data.toString());
+      proc.on('exit', () => {
+        assert.equal(output, 'required');
+        done();
+      });
+    });
   });
 
 });

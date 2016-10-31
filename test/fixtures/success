@@ -5,9 +5,14 @@
  * success
  * ---------------------------------------------------------------------------*/
 
-// dirty little hack to confirm additional args get passed through
-if (process.argv[2].startsWith('--')) {
-  process.stdout.write('success');  
+// dirty little hack to confirm additional nodeArgs get passed through
+if (process.env['required']) {
+  process.stdout.write('required');
+
+// dirty little hack to confirm additional childArgs get passed through
+} else if (!process.argv[2]) {
+  process.stdout.write('success');
+
 } else {
   process.stdout.write(process.argv[2]);
 }
