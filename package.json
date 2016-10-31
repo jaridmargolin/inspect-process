@@ -2,7 +2,7 @@
   "name": "inspect-process",
   "description": "Dead simple debugging for node.js using chrome-devtools.",
   "author": "Jarid Margolin <jaridmargolin@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "https://github.com/jaridmargolin/inspect-process",
   "license": "MIT",
   "repository": {
