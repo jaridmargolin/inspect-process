@@ -2,6 +2,8 @@
 
 Dead simple debugging for node.js using chrome-devtools.
 
+<img src="https://cldup.com/EKt_O0lK-F.gif" width="100%">
+
 Node added support for v8-inspector in [v6.3.0](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V6.md#6.3.0) but launching the debugger for a given process is still a little clumsy. **inspect-process** is a small wrapper built on the shoulders of giants to make working with the v8-inspector dead simple.
 
 `npm install -g inspect-process`
