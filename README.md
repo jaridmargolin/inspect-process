@@ -28,7 +28,7 @@ Behind the scenes **inspect-process** attempts to normalize your experience by:
 Install this globally and you'll have access to the `inspect` command anywhere on your system.
 
 ```
-npm install -g inspect-process`
+npm install -g inspect-process
 ```
 
 **Inspecting a file**
