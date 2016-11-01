@@ -17,7 +17,9 @@
     "inspect": "bin/inspect.js"
   },
   "scripts": {
-    "test": "mocha --no-timeouts"
+    "test": "mocha --no-timeouts",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --no-timeouts",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "chromedriver": "^2.24.1",
@@ -29,6 +31,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.14",
+    "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "test-console": "^1.0.0"
   }

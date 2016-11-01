@@ -1,4 +1,4 @@
-# inspect-process [![Build Status](https://travis-ci.org/jaridmargolin/inspect-process.png)](https://travis-ci.org/jaridmargolin/inspect-process)
+# inspect-process [![Build Status](https://travis-ci.org/jaridmargolin/inspect-process.png)](https://travis-ci.org/jaridmargolin/inspect-process) [![Coverage Status](https://coveralls.io/repos/github/jaridmargolin/inspect-process/badge.svg?branch=master)](https://coveralls.io/github/jaridmargolin/inspect-process?branch=master)
 
 Dead simple debugging for node.js using chrome-devtools.
 
