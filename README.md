@@ -1,4 +1,6 @@
-# inspect-process [![Build Status](https://travis-ci.org/jaridmargolin/inspect-process.svg?branch=master)](https://travis-ci.org/jaridmargolin/inspect-process) [![Coverage Status](https://coveralls.io/repos/github/jaridmargolin/inspect-process/badge.svg?branch=master)](https://coveralls.io/github/jaridmargolin/inspect-process?branch=master)
+# inspect-process
+
+[![Build Status](https://travis-ci.org/jaridmargolin/inspect-process.svg?branch=master)](https://travis-ci.org/jaridmargolin/inspect-process) [![Coverage Status](https://coveralls.io/repos/github/jaridmargolin/inspect-process/badge.svg?branch=master)](https://coveralls.io/github/jaridmargolin/inspect-process?branch=master) [![NPM inspect-process package](https://img.shields.io/npm/v/inspect-process.svg)](https://npmjs.org/package/inspect-process)
 
 > A small wrapper built on the shoulders of giants to make working with the v8-inspector dead simple.
 
