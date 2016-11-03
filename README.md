@@ -20,7 +20,7 @@ Behind the scenes **inspect-process** attempts to normalize your experience by:
 
 ### How is this different from node-inspector?
 
-**inpsect-process** is only a small wrapper around the native `--inspect` functionaltiy provided by node. The key differences between utilizing `--inspect` and `node-inspector` can be found in [this comment by pavelfeldman](https://github.com/nodejs/node/pull/6792#issuecomment-219756916)
+**inspect-process** is only a small wrapper around the native `--inspect` functionaltiy provided by node. The key differences between utilizing `--inspect` and `node-inspector` can be found in [this comment by pavelfeldman](https://github.com/nodejs/node/pull/6792#issuecomment-219756916)
 
 
 ## Usage
