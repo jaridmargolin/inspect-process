@@ -132,6 +132,17 @@ describe('inspect', function () {
         done();
       });
     });
+
+    it('Should forward inspectArgs', function (done) {
+      const proc = spawn(executablePath, ['--verbose', 'success']);
+      let output = '';
+
+      proc.stderr.on('data', (data) => output = data.toString());
+      proc.on('exit', () => {
+        assert.equal(output, 'Waiting for the debugger to disconnect...\n');
+        done();
+      });
+    });
   });
 
 });
