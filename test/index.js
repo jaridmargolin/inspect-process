@@ -10,7 +10,7 @@ const path = require('path');
 const net = require('net');
 
 // 3rd party
-const _ = require('lodash');
+const _ = require('lodash/fp');
 const assert = require('chai').assert;
 const stdout = require('test-console').stdout;
 const stderr = require('test-console').stderr;
@@ -88,6 +88,17 @@ describe('inspect', function () {
     it('Should find an open port.', function (done) {
       const server = net.createServer();
       server.listen(9229, () => inspect(successPath).then(done));
+    });
+
+    it('Should use path to local chromedriver instance.', function () {
+      const paths = process.env['PATH'].split(':');
+      const removeChromeDriver = _.remove((key) => {
+        return key.includes('chromedriver') ||
+          key.includes('inspect-process/node_modules/.bin');
+      });
+
+      process.env['PATH'] = removeChromeDriver(paths).join(':');
+      return inspect(successPath);
     });
   });
 
