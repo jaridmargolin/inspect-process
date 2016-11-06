@@ -32,21 +32,39 @@ v8flags((err, result) => {
   'openssl-config=path', 'tls-cipher-list=val'];
   const nodeNumberOptions = ['v8-pool-size'];
 
+  const inspectCliOptions = {
+    'verbose': { type: 'boolean' }
+  };
+
   const parsed = yargs
     .boolean(v8Flags)
     .boolean(nodeFlags)
     .string(nodeStringOptions)
     .number(nodeNumberOptions)
+    .options(inspectCliOptions)
     .argv;
 
   const cmd = parsed._[0];
   const args = process.argv.slice(2);
-  const options = {
-    nodeArgs: _.difference(args)(parsed._),
-    childArgs: parsed._.slice(1)
-  };
 
-  inspect(cmd, options)
+  // all keys after the cmd should be considered childArgs
+  const childArgs = args.slice(args.indexOf(cmd) + 1);
+
+  // inspectOptions are just picked from our parsed args. We pass "options"
+  // rather than args because we are not proxying the args to the future
+  // child_process
+  const inspectKeys = _.keys(inspectCliOptions);
+  const inspectArgs = _.map((key) => '--' + key)(inspectKeys);
+  const inspectOptions = _.pick(inspectKeys)(parsed);
+
+  // node args are simply all remaing args
+  const nodeArgs = _.difference(args)(parsed._.concat(inspectArgs))
+
+  inspect(cmd, {
+      nodeArgs: nodeArgs,
+      childArgs: childArgs,
+      inspectOptions: inspectOptions
+    })
     .then(() => process.exit())
     .catch(() => process.exit(1));
 });
