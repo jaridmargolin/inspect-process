@@ -28,6 +28,7 @@ const fixturesPath = path.resolve(__dirname, 'fixtures');
 
 const successPath = path.resolve(fixturesPath, 'success');
 const errorPath = path.resolve(fixturesPath, 'error');
+const exceptionPath = path.resolve(fixturesPath, 'exception');
 
 
 /* -----------------------------------------------------------------------------
@@ -52,6 +53,11 @@ describe('inspect', function () {
     // mocha results are printed to stdout
     process.stdout.write(_.last(this.stdout.output));
   });
+
+
+  /* ---------------------------------------------------------------------------
+   * api
+   * -------------------------------------------------------------------------*/
 
   describe('api', function () {
 
@@ -100,7 +106,34 @@ describe('inspect', function () {
       process.env['PATH'] = removeChromeDriver(paths).join(':');
       return inspect(successPath);
     });
+
   });
+
+
+  /* ---------------------------------------------------------------------------
+   * options
+   * -------------------------------------------------------------------------*/
+
+  describe('options', function () {
+
+    it('Should debug exceptions (--debug-exception).', function (done) {
+      const inspected = inspect(exceptionPath, {
+        inspectOptions: { 'debug-exception': true }
+      });
+
+      inspected.devtools.onOpen = function () {
+        inspected.devtools._waitUntilPause()
+          .then(() => inspected.devtools._continueExecution())
+          .then(() => done());
+      };
+    });
+
+  });
+
+
+  /* ---------------------------------------------------------------------------
+   * executable
+   * -------------------------------------------------------------------------*/
 
   describe('executable', function () {
 
@@ -154,6 +187,7 @@ describe('inspect', function () {
         done();
       });
     });
+
   });
 
 });
