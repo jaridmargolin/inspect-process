@@ -55,11 +55,17 @@ inspect index.js --argument=val
 
 **Passing arguments to node**
 
-If you wish to pass additional arguments to the node process you will have to use the special option `--` to delimit the end of the node arguments.
+Arguments are passed to the process just as if you were utilizing the node CLI.
 
 ```
-inspect --harmony -- index.js
+inspect --harmony index.js
 ```
+
+### Options
+
+**--debug-exception** [boolean] Pause debuuger on exceptions.
+
+**--verbose**: [boolean] Show all output from --inspect.
 
 
 ## Tests
