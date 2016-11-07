@@ -15,6 +15,29 @@ const inspect = require('../lib/index');
 
 
 /* -----------------------------------------------------------------------------
+ * usage
+ * ---------------------------------------------------------------------------*/
+
+const inspectCliOptions = {
+  'debug-exception': {
+    type: 'boolean',
+    description: 'Pause debuuger on exceptions.'
+  },
+  'verbose': {
+    type: 'boolean',
+    description: 'Show all output from --inspect.'
+  }
+};
+
+// early parse in order to show inspect specific help options
+yargs.options(inspectCliOptions)
+  .usage('\nUsage:\ninspect [inspect options] [node options] [v8 options] [script] [arguments]')
+  .version()
+  .help()
+  .argv;
+
+
+/* -----------------------------------------------------------------------------
  * inspect
  * ---------------------------------------------------------------------------*/
 
@@ -32,17 +55,11 @@ v8flags((err, result) => {
   'openssl-config=path', 'tls-cipher-list=val'];
   const nodeNumberOptions = ['v8-pool-size'];
 
-  const inspectCliOptions = {
-    'verbose': { type: 'boolean' },
-    'debug-exception': { type: 'boolean' }
-  };
-
   const parsed = yargs
     .boolean(v8Flags)
     .boolean(nodeFlags)
     .string(nodeStringOptions)
     .number(nodeNumberOptions)
-    .options(inspectCliOptions)
     .argv;
 
   const cmd = parsed._[0];
