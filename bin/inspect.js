@@ -33,7 +33,8 @@ v8flags((err, result) => {
   const nodeNumberOptions = ['v8-pool-size'];
 
   const inspectCliOptions = {
-    'verbose': { type: 'boolean' }
+    'verbose': { type: 'boolean' },
+    'debug-exception': { type: 'boolean' }
   };
 
   const parsed = yargs
