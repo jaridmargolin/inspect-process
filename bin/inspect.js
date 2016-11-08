@@ -50,7 +50,7 @@ v8flags((err, result) => {
   const nodeFlags = ['preserve-symlinks', 'zero-fill-buffers', 'prof-process',
     'track-heap-objects', 'trace-sync-io', 'trace-warnings', 'no-warnings',
     'throw-deprecation', 'trace-deprecation', 'no-deprecation', 'interactive',
-    'enable-fips', 'force-fips'];
+    'enable-fips', 'force-fips', 'debug-brk'];
   const nodeStringOptions = ['require', 'eval', 'print', 'icu-data-dir=dir',
   'openssl-config=path', 'tls-cipher-list=val'];
   const nodeNumberOptions = ['v8-pool-size'];
