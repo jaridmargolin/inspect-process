@@ -23,9 +23,11 @@ const inspectCliOptions = {
     type: 'boolean',
     description: 'Pause debuuger on exceptions.'
   },
-  'verbose': {
-    type: 'boolean',
-    description: 'Show all output from --inspect.'
+  'log-level': {
+    type: 'string',
+    description: 'The level to display logs at.',
+    choices: ['silly', 'verbose', 'info'],
+    default: 'info'
   }
 };
 
@@ -62,21 +64,28 @@ v8flags((err, result) => {
     .number(nodeNumberOptions)
     .argv;
 
-  const cmd = parsed._[0];
   const args = process.argv.slice(2);
+  const cmd = parsed._[0];
+  const cmdIndex = args.indexOf(cmd);
+  const processArgs = args.slice(0, cmdIndex);
 
   // all keys after the cmd should be considered childArgs
-  const childArgs = args.slice(args.indexOf(cmd) + 1);
+  const childArgs = args.slice(cmdIndex + 1);
+  const childFlags = _.map((arg) => arg.split('=')[0])(childArgs);
 
   // inspectOptions are just picked from our parsed args. We pass "options"
   // rather than args because we are not proxying the args to the future
   // child_process
   const inspectKeys = _.keys(inspectCliOptions);
-  const inspectArgs = _.map((key) => '--' + key)(inspectKeys);
-  const inspectOptions = _.pick(inspectKeys)(parsed);
+  const inspectFlags = _.map((key) => '--' + key)(inspectKeys);
+  const inspectOptions = _.compose(_.omitBy((val, key) => {
+    return childFlags.includes('--' + key)
+  }), _.pick(inspectKeys))(parsed);
 
-  // node args are simply all remaing args
-  const nodeArgs = _.difference(args)(parsed._.concat(inspectArgs))
+  // node args are simply processArgs that are not inspectArgs
+  const nodeArgs = _.remove((arg) => {
+    return inspectFlags.includes(arg.split('=')[0]);
+  })(processArgs);
 
   inspect(cmd, {
       nodeArgs: nodeArgs,
