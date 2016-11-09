@@ -63,9 +63,9 @@ inspect --harmony index.js
 
 ### Options
 
-**--debug-exception** [boolean] Pause debuuger on exceptions.
+**--debug-exception** Pause debuuger on exceptions. [boolean]
 
-**--verbose**: [boolean] Show all output from --inspect.
+**--log-level**: The level to display logs at. [string] (choices: "silly", "verbose", "info")
 
 
 ## Tests

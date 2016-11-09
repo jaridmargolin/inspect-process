@@ -23,9 +23,11 @@ const inspectCliOptions = {
     type: 'boolean',
     description: 'Pause debuuger on exceptions.'
   },
-  'verbose': {
-    type: 'boolean',
-    description: 'Show all output from --inspect.'
+  'log-level': {
+    type: 'string',
+    description: 'The level to display logs at.',
+    choices: ['silly', 'verbose', 'info'],
+    default: 'info'
   }
 };
 
