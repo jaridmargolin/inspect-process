@@ -179,6 +179,17 @@ describe('inspect', function () {
       })
     })
 
+    it('Should work with node aliases', function (done) {
+      const proc = spawn(executablePath, ['-r', './test/fixtures/required', 'success'])
+      let output = ''
+
+      proc.stdout.on('data', (data) => (output = data.toString()))
+      proc.on('exit', () => {
+        assert.equal(output, 'required')
+        done()
+      })
+    })
+
     it('Should forward inspectArgs', function (done) {
       const proc = spawn(executablePath, ['--log-level=verbose', 'success'])
       let output = ''

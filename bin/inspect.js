@@ -54,12 +54,20 @@ v8flags((err, result) => {
   const nodeStringOptions = ['require', 'eval', 'print', 'icu-data-dir=dir',
     'openssl-config=path', 'tls-cipher-list=val']
   const nodeNumberOptions = ['v8-pool-size']
+  const nodeAliases = {
+    'v': 'version',
+    'e': 'eval',
+    'p': 'print',
+    'i': 'interactive',
+    'r': 'require'
+  }
 
   const parsed = yargs
     .boolean(v8Flags)
     .boolean(nodeFlags)
     .string(nodeStringOptions)
     .number(nodeNumberOptions)
+    .alias(nodeAliases)
     .argv
 
   const args = process.argv.slice(2)
