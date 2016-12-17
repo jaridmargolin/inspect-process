@@ -103,6 +103,9 @@ This is clear when looking at all of the provided mocha examples. The actual `mo
 
 If you have control of the source code responsible for spawning the child process, it is technically possible to still utilize **inspect-process** by working with [programatic api](https://github.com/jaridmargolin/inspect-process/blob/master/lib/index.js), however this is not recommended for most use cases.
 
+### Internet Connectivity (> Node 7.1.0)
+
+Versions of Node prior to 7.1.0 require a specific devtools version which is downloaded from the cloud (hence "remote" in the URL string). Node 7.1.0 and on will be exposing a stable protocol which will work with the devtools version bundled with the Chrome ([source](https://github.com/jaridmargolin/inspect-process/issues/18#issuecomment-259748007)).
 
 ## License
 
