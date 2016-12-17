@@ -1,10 +1,20 @@
-# inspect-process
-
-[![Build Status](https://travis-ci.org/jaridmargolin/inspect-process.svg?branch=master)](https://travis-ci.org/jaridmargolin/inspect-process) [![Coverage Status](https://coveralls.io/repos/github/jaridmargolin/inspect-process/badge.svg?branch=master)](https://coveralls.io/github/jaridmargolin/inspect-process?branch=master) [![NPM inspect-process package](https://img.shields.io/npm/v/inspect-process.svg)](https://npmjs.org/package/inspect-process)
-
-> A small wrapper built on the shoulders of giants to make working with the v8-inspector dead simple.
-
-<img src="https://cldup.com/EKt_O0lK-F.gif" width="100%">
+<h1 align="center">inspect-process</h1>
+<div align="center">
+  <p>Dead simple debugging for node.js using chrome-devtools.</p>
+  <div>
+  <a href="https://travis-ci.org/jaridmargolin/inspect-process"><img src="https://travis-ci.org/jaridmargolin/inspect-process.svg?branch=master" alt="Build Status"></a>
+  <a href="https://coveralls.io/github/jaridmargolin/inspect-process?branch=master"><img src="https://coveralls.io/repos/github/jaridmargolin/inspect-process/badge.svg?branch=master" alt="Coverage Status"></a>
+  <a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
+  </div>
+  <div>
+  <a href="https://npmjs.org/package/inspect-process"><img src="https://img.shields.io/npm/v/inspect-process.svg" alt="NPM inspect-process package"></a>
+  <a href="https://david-dm.org/jaridmargolin/inspect-process"><img src="https://david-dm.org/jaridmargolin/inspect-process.svg" alt="Dependency Status"></a>
+  <a href="https://david-dm.org/jaridmargolin/inspect-process#info=devDependencies"><img src="https://david-dm.org/jaridmargolin/inspect-process/dev-status.svg" alt="devDependency Status"></a>
+  </div>
+  <br>
+  <img src="https://cldup.com/EKt_O0lK-F.gif" width="100%">
+</div>
+<br>
 
 ### Why?
 
@@ -87,12 +97,15 @@ npm test
 
 ### Child Processes
 
-Inspecting a child process is not currently possible (and most likely never will be). Unfortunately **inspect-process** can not force child processes to spawn with the necessary `--inspect` flag. 
+Inspecting a child process is not currently possible (and most likely never will be). Unfortunately **inspect-process** can not force child processes to spawn with the necessary `--inspect` flag.
 
 This is clear when looking at all of the provided mocha examples. The actual `mocha` executable is a wrapper that spawns `_mocha` (done in order to allow passing flags to the node process). In order to use mocha with **inspect-process**, we have to bypass that first indirection and use the `_mocha` exectuable directly: `inspect _mocha`.
 
 If you have control of the source code responsible for spawning the child process, it is technically possible to still utilize **inspect-process** by working with [programatic api](https://github.com/jaridmargolin/inspect-process/blob/master/lib/index.js), however this is not recommended for most use cases.
 
+### Internet Connectivity (> Node 7.1.0)
+
+Versions of Node prior to 7.1.0 require a specific devtools version which is downloaded from the cloud (hence "remote" in the URL string). Node 7.1.0 and on will be exposing a stable protocol which will work with the devtools version bundled with the Chrome ([source](https://github.com/jaridmargolin/inspect-process/issues/18#issuecomment-259748007)).
 
 ## License
 

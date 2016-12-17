@@ -2,7 +2,7 @@
   "name": "inspect-process",
   "description": "Dead simple debugging for node.js using chrome-devtools.",
   "author": "Jarid Margolin <jaridmargolin@gmail.com>",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "homepage": "https://github.com/jaridmargolin/inspect-process",
   "license": "MIT",
   "repository": {
@@ -17,7 +17,7 @@
     "inspect": "bin/inspect.js"
   },
   "scripts": {
-    "test": "mocha --no-timeouts",
+    "test": "standard && mocha --no-timeouts",
     "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --no-timeouts",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
@@ -27,7 +27,7 @@
     "lodash": "^4.16.4",
     "npmlog": "^4.0.0",
     "portfinder": "^1.0.9",
-    "selenium-webdriver": "^3.0.0-beta-3",
+    "selenium-webdriver": "^3.0.1",
     "v8flags": "^2.0.11",
     "which": "^1.2.11",
     "yargs": "^6.3.0"
@@ -37,6 +37,7 @@
     "coveralls": "^2.11.14",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
+    "standard": "^8.6.0",
     "test-console": "^1.0.0"
   }
 }
