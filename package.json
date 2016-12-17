@@ -17,7 +17,7 @@
     "inspect": "bin/inspect.js"
   },
   "scripts": {
-    "test": "mocha --no-timeouts",
+    "test": "standard && mocha --no-timeouts",
     "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --no-timeouts",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
@@ -37,6 +37,7 @@
     "coveralls": "^2.11.14",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
+    "standard": "^8.6.0",
     "test-console": "^1.0.0"
   }
 }
