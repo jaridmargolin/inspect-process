@@ -22,21 +22,21 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "chromedriver": "^2.24.1",
+    "chromedriver": "^2.26.1",
     "exit-hook": "^1.1.1",
-    "lodash": "^4.16.4",
-    "npmlog": "^4.0.0",
-    "portfinder": "^1.0.9",
+    "lodash": "^4.17.2",
+    "npmlog": "^4.0.2",
+    "portfinder": "^1.0.10",
     "selenium-webdriver": "^3.0.1",
     "v8flags": "^2.0.11",
-    "which": "^1.2.11",
-    "yargs": "^6.3.0"
+    "which": "^1.2.12",
+    "yargs": "^6.5.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.14",
+    "coveralls": "^2.11.15",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.2",
+    "mocha": "^3.2.0",
     "standard": "^8.6.0",
     "test-console": "^1.0.0"
   }
