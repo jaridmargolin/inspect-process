@@ -9,7 +9,7 @@ addons:
 
 language: node_js
 node_js:
-- 6.5.0
+- 7.1.0
 
 before_script:
   - export DBUS_SESSION_BUS_ADDRESS=/dev/null

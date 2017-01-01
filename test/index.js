@@ -179,6 +179,17 @@ describe('inspect', function () {
       })
     })
 
+    it('Should forward v8flags', function (done) {
+      const proc = spawn(executablePath, ['--harmony', 'harmony'])
+      let output = ''
+
+      proc.stdout.on('data', (data) => (output = data.toString()))
+      proc.on('exit', () => {
+        assert.equal(output, 'success')
+        done()
+      })
+    })
+
     it('Should work with node aliases', function (done) {
       const proc = spawn(executablePath, ['-r', './test/fixtures/required', 'success'])
       let output = ''

@@ -25,10 +25,10 @@
     "chromedriver": "^2.26.1",
     "exit-hook": "^1.1.1",
     "lodash": "^4.17.2",
+    "nodeflags": "^0.0.1",
     "npmlog": "^4.0.2",
     "portfinder": "^1.0.10",
     "selenium-webdriver": "^3.0.1",
-    "v8flags": "^2.0.11",
     "which": "^1.2.12",
     "yargs": "^6.5.0"
   },

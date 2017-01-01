@@ -8,7 +8,7 @@
 // 3rd party
 const _ = require('lodash/fp')
 const yargs = require('yargs')
-const v8flags = require('v8flags')
+const nodeflags = require('nodeflags')
 
 // lib
 const inspect = require('../lib/index')
@@ -41,35 +41,12 @@ yargs.options(inspectCliOptions)
  * inspect
  * -------------------------------------------------------------------------- */
 
-v8flags((err, result) => {
+nodeflags((err, flags) => {
   if (err) {
     throw new Error(err)
   }
 
-  const v8Flags = _.map((flag) => flag.substring(2))(result)
-  const nodeFlags = ['preserve-symlinks', 'zero-fill-buffers', 'prof-process',
-    'track-heap-objects', 'trace-sync-io', 'trace-warnings', 'no-warnings',
-    'throw-deprecation', 'trace-deprecation', 'no-deprecation', 'interactive',
-    'enable-fips', 'force-fips', 'debug-brk']
-  const nodeStringOptions = ['require', 'eval', 'print', 'icu-data-dir=dir',
-    'openssl-config=path', 'tls-cipher-list=val']
-  const nodeNumberOptions = ['v8-pool-size']
-  const nodeAliases = {
-    'v': 'version',
-    'e': 'eval',
-    'p': 'print',
-    'i': 'interactive',
-    'r': 'require'
-  }
-
-  const parsed = yargs
-    .boolean(v8Flags)
-    .boolean(nodeFlags)
-    .string(nodeStringOptions)
-    .number(nodeNumberOptions)
-    .alias(nodeAliases)
-    .argv
-
+  const parsed = yargs.options(flags).argv
   const args = process.argv.slice(2)
   const cmd = parsed._[0]
   const cmdIndex = args.indexOf(cmd)
