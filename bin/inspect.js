@@ -67,11 +67,7 @@ nodeflags((err, flags) => {
     return inspectFlags.includes(arg.split('=')[0])
   })(processArgs)
 
-  inspect(cmd, {
-    nodeArgs: nodeArgs,
-    childArgs: childArgs,
-    inspectOptions: inspectOptions
-  })
+  inspect(cmd, { nodeArgs, childArgs, inspectOptions })
     .then(() => process.exit())
     .catch(() => process.exit(1))
 })
