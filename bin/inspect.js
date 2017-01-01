@@ -54,16 +54,13 @@ nodeflags((err, flags) => {
 
   // all keys after the cmd should be considered childArgs
   const childArgs = args.slice(cmdIndex + 1)
-  const childFlags = _.map((arg) => arg.split('=')[0])(childArgs)
 
   // inspectOptions are just picked from our parsed args. We pass "options"
   // rather than args because we are not proxying the args to the future
   // child_process
   const inspectKeys = _.keys(inspectCliOptions)
   const inspectFlags = _.map((key) => '--' + key)(inspectKeys)
-  const inspectOptions = _.compose(_.omitBy((val, key) => {
-    return childFlags.includes('--' + key)
-  }), _.pick(inspectKeys))(parsed)
+  const inspectOptions = _.pick(inspectKeys)(parsed)
 
   // node args are simply processArgs that are not inspectArgs
   const nodeArgs = _.remove((arg) => {
