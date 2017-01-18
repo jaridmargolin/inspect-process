@@ -73,7 +73,7 @@ inspect --harmony index.js
 
 ### Options
 
-**--debug-exception** Pause debuuger on exceptions. [boolean]
+**--debug-exception** Pause debugger on exceptions. [boolean]
 
 **--log-level**: The level to display logs at. [string] (choices: "silly", "verbose", "info")
 
