@@ -20,7 +20,7 @@ const inspect = require('../lib/index')
 const inspectCliOptions = {
   'debug-exception': {
     type: 'boolean',
-    description: 'Pause debuuger on exceptions.'
+    description: 'Pause debugger on exceptions.'
   },
   'log-level': {
     type: 'string',
