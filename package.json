@@ -22,6 +22,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "chromedriver": "^2.27.3",
     "exit-hook": "^1.1.1",
     "lodash": "^4.17.4",
@@ -30,6 +31,7 @@
     "portfinder-sync": "0.0.2",
     "selenium-webdriver": "^3.1.0",
     "which": "^1.2.12",
+    "ws": "^2.1.0",
     "yargs": "^6.6.0"
   },
   "devDependencies": {
