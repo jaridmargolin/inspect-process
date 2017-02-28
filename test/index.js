@@ -111,6 +111,7 @@ describe('inspect', function () {
       inspected.devtools.onOpen = function () {
         inspected.devtools._waitUntilPause()
           .then(() => inspected.devtools._continueExecution())
+          .then(() => inspected)
           .then(() => done())
       }
     })
