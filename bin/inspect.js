@@ -31,6 +31,7 @@ const inspectCliOptions = {
 }
 
 // early parse in order to show inspect specific help options
+// eslint-disable-next-line no-unused-expressions
 yargs.options(inspectCliOptions)
   .usage('\nUsage:\ninspect [inspect options] [node options] [v8 options] [script] [arguments]')
   .version()
