@@ -29,7 +29,7 @@
     "npmlog": "^4.0.2",
     "portfinder-sync": "0.0.2",
     "selenium-webdriver": "^3.1.0",
-    "which": "^1.2.12",
+    "which": "1.2.14",
     "yargs": "^8.0.1"
   },
   "devDependencies": {
