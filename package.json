@@ -22,7 +22,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "chromedriver": "^2.27.3",
+    "chromedriver": "^2.37.0",
     "exit-hook": "^1.1.1",
     "lodash": "^4.17.4",
     "nodeflags": "^0.0.1",
