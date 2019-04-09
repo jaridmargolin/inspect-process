@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "chromedriver": "^2.27.3",
-    "exit-hook": "^1.1.1",
+    "exit-hook": "^2.1.0",
     "lodash": "^4.17.4",
     "nodeflags": "^0.0.1",
     "npmlog": "^4.0.2",
