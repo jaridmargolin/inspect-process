@@ -24,7 +24,7 @@
   "dependencies": {
     "chromedriver": "^2.27.3",
     "exit-hook": "^1.1.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.12",
     "nodeflags": "^0.0.1",
     "npmlog": "^4.0.2",
     "portfinder-sync": "0.0.2",
