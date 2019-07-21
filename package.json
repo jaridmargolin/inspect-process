@@ -37,7 +37,7 @@
     "coveralls": "^2.11.16",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
-    "standard": "^10.0.0",
+    "standard": "^13.1.0",
     "test-console": "^1.0.0"
   }
 }
